@@ -17,8 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from itemApp import views as item_views
+from cartApp import views as cart_views
+from django.contrib.auth import views as auth_views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('items/', item_views.get_items, name='get_items'),
+    path('add_cart/', cart_views.create_cart, name='add_cart'),
+    path('cart_content/', cart_views.get_cart_content, name='cart_content'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
