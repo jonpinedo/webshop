@@ -18,15 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from itemApp import views as item_views
 from cartApp import views as cart_views
-from django.contrib.auth import views as auth_views
-
+from cartApp.views import LoginView, LogoutView
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('items/', item_views.get_items, name='get_items'),
-    path('add_cart/', cart_views.create_cart, name='add_cart'),
-    path('cart_content/', cart_views.get_cart_content, name='cart_content'),
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('cart/<int:id>/', cart_views.CartDetail.as_view(), name='cart_detail'),
+    path('cart/checkout/', cart_views.CartCheckout.as_view()),
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

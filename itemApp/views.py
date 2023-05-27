@@ -16,9 +16,7 @@ def get_items(request):
     
     try:
         items = Item.objects.all()
+        serializer = ItemSerializer(items, many=True, context={"request": request})
+        return Response(serializer.data, status=200)
     except Item.DoesNotExist:
         return Response({'message': 'No items found'})
-    
-    
-    serializer = ItemSerializer(items, many=True)
-    return Response(serializer.data, status=200)
