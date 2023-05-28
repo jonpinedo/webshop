@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from .models import Item
 from .serializers import ItemSerializer
 from rest_framework.decorators import api_view
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 """
 class ItemViewSet(viewsets.ModelViewSet):
@@ -20,3 +21,7 @@ def get_items(request):
         return Response(serializer.data, status=200)
     except Item.DoesNotExist:
         return Response({'message': 'No items found'})
+    
+
+
+
