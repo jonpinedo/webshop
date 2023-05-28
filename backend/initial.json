@@ -1,0 +1,152 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$0cmvKOgSy5W97vjZOK7YJy$mobz1qh4PjK0VMhyg+J3uJSUxFubi6RHBlVbHuD8+Qw=",
+    "last_login": "2023-05-28T18:00:20.124Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-05-28T18:00:07.108Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ZFpr9D1aIhMLsBzq0ADSx8$yjLEJTpfkhF9DKiNuC+eRgjqs7IDuUiEE4ZIiZvpUqU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "client1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-28T18:00:59.601Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vkqifo8pva4n0xot2gqbaggow1248nsv",
+  "fields": {
+    "session_data": ".eJxVjEsOgjAUAO_StWnso32IS_ecgbxfLWogobAy3t2QsNDtzGTebqBtLcNWbRlGdVcX3OmXMcnTpl3og6b77GWe1mVkvyf-sNX3s9rrdrR_g0K17FskAWVqBZCbC3YNgrbQqIgYZmHMSSRwjGSQDIEydym34ZwgWlT3-QIDrzi2:1q3Kgm:yy8il0l7xHWw6_z8nm915tjJ8ICqxh4PfgvzOCxJ3os",
+    "expire_date": "2023-06-11T18:00:20.128Z"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 1,
+  "fields": {
+    "item_name": "Camiseta básica",
+    "item_price": "15.99",
+    "item_image": "item_images/camiseta_basica_HH5fEW7.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 2,
+  "fields": {
+    "item_name": "Pantalones vaqueros",
+    "item_price": "39.99",
+    "item_image": "item_images/pantalon_vaquero_KCUPqtD.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 3,
+  "fields": {
+    "item_name": "Vestido de fiesta",
+    "item_price": "89.99",
+    "item_image": "item_images/vestido_fiesta_jRsaEcO.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 4,
+  "fields": {
+    "item_name": "Jersey de lana",
+    "item_price": "49.99",
+    "item_image": "item_images/jersey_lana_1aS1lXI.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 5,
+  "fields": {
+    "item_name": "Falda plisada",
+    "item_price": "29.99",
+    "item_image": "item_images/falda_plisada_0x2lfQP.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 6,
+  "fields": {
+    "item_name": "Camiseta tirantes",
+    "item_price": "15.99",
+    "item_image": "item_images/camiseta_tirantes_WKY3X6L.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 7,
+  "fields": {
+    "item_name": "Pantalones de lino",
+    "item_price": "39.99",
+    "item_image": "item_images/pantalon_lino_Ga7AVy4.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 8,
+  "fields": {
+    "item_name": "Vestido de gala",
+    "item_price": "89.99",
+    "item_image": "item_images/vestido_gala_FYDCyAS.jpeg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 9,
+  "fields": {
+    "item_name": "Sudadera con capucha",
+    "item_price": "49.99",
+    "item_image": "item_images/sudadera_capucha_NJGmIrN.jpg"
+  }
+},
+{
+  "model": "itemApp.item",
+  "pk": 10,
+  "fields": {
+    "item_name": "Falda vaquera",
+    "item_price": "29.99",
+    "item_image": "item_images/falda_vaquera_ZbuMnXD.jpg"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-05-28T18:00:59.899Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "client1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+}
+]

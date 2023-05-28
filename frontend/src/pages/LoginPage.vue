@@ -118,7 +118,7 @@ export default defineComponent({
         username: this.username,
         password: this.password,
       };
-      api.post("/login/", data).then((resp) => {
+      api.post("/api/login/", data).then((resp) => {
         const token = resp.data.access;
         localStorage.setItem("token", token);
         //Redirect to Index

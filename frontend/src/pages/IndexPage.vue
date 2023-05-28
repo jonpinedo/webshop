@@ -153,9 +153,9 @@ export default defineComponent({
       console.log(this.currentCartData);
     },
     checkoutCart() {
-      api.post("cart/checkout/", this.currentCartData).then((resp) => {
+      api.post("/api/cart/checkout/", this.currentCartData).then((resp) => {
         Notify.create({message: "Order processed successfully", color: "purple"})
-        api.get("/cart/" + resp.data.cart_id + "/").then((resp2) => {
+        api.get("/api/cart/" + resp.data.cart_id + "/").then((resp2) => {
           this.currentCartData.items = [];
           this.currentCartData.price = new Decimal(0);
           this.order_confirmation = resp2.data;
@@ -165,7 +165,7 @@ export default defineComponent({
     },
     getItems() {
       console.log("getItems");
-      api.get("/items/").then((resp) => {
+      api.get("/api/items/").then((resp) => {
         this.items = resp.data;
       });
     },
