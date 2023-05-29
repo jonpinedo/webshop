@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 import decimal
 
 class CountryCode:
+    """This model just offer choices for the country code. Just two added as an example"""
     ES = 'es'
     EN = 'en'
     CHOICES = [
@@ -13,6 +14,7 @@ class CountryCode:
 
 
 class Cart(models.Model):
+    """Model of the cart. Stores the user, the country code and a list of Items throw the calss CartItem defined below"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     country_code = models.CharField(max_length=10, choices=CountryCode.CHOICES)
     items = models.ManyToManyField(Item, through='CartItem')
@@ -30,6 +32,7 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
+    """Model of an Item in the cart. It contains a relationship with the item it represents and the quantity added to the cart"""
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)

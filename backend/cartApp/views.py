@@ -17,7 +17,9 @@ class CartDetail(APIView):
 
 
 class CartCheckout(APIView):
+    """Saves the content of the cart to the DB and returns it's asigned id"""
     def post(self, request, *args, **kwargs):
+        """Gets user id from the request"""
         user_id = request.user.id
         serializer = CartCheckoutSerializer(data=request.data, context={"user_id": user_id})
         if serializer.is_valid():

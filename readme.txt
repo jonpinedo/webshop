@@ -12,6 +12,8 @@ Or add new users in http://localhost/admin/
 Username: admin
 Password: qvantel
 
+The container automatically loads some sample items to test the functionality of the webapp
+
 The Django project has 2 applications:
 itemApp: Basic application for the content of the shop
     API REST Request:

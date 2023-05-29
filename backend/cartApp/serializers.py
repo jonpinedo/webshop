@@ -6,10 +6,12 @@ from django.db import transaction
 
 
 class CartItemSerializer(serializers.Serializer):
+    """Serializer for CartItem model in the checkout request"""
     item = serializers.PrimaryKeyRelatedField(queryset=Item.objects.all())
     quantity = serializers.IntegerField()
     
     def validate_quantity(self, value):
+        """Check that item's quantity is > 0"""
         if value <= 0:
             raise serializers.ValidationError('Quantity must be > 0')
         return value
@@ -19,6 +21,7 @@ class CartItemSerializer(serializers.Serializer):
 
 
 class CartCheckoutSerializer(serializers.Serializer):
+    """Serializer for the checkout request"""
     items = CartItemSerializer(many=True)
     country_code = serializers.ChoiceField(choices=CountryCode.CHOICES)
 
@@ -27,6 +30,11 @@ class CartCheckoutSerializer(serializers.Serializer):
 
     @transaction.atomic
     def create(self, validated_data):
+        """
+        This method creates a cart with the user_id obtained from the context and the country_code. 
+        Then populates it with the items in the request. The transaction is atomic so that in case of an error, the creation of the cart is rolled back.
+        Finally it returns the cart id
+        """
         user_id = self.context["user_id"]
         country_code = validated_data.get("country_code")
         items = validated_data.get("items")
@@ -44,6 +52,7 @@ class CartCheckoutSerializer(serializers.Serializer):
 
 
 class CartItemDetailSerializer(serializers.ModelSerializer):
+    """Serializer for the Items in the cart on the cart detail request"""
     id = serializers.CharField(read_only=True, source='item.item_id')
     name = serializers.CharField(read_only=True, source='item.item_name')
     quantity = serializers.CharField(read_only=True)
@@ -69,11 +78,13 @@ class CartItemDetailSerializer(serializers.ModelSerializer):
 
 
 class CartDetailSerializer(serializers.ModelSerializer):
+    """Serializer for the cart detail request"""
     items = serializers.SerializerMethodField()
     country_code = serializers.ChoiceField(choices=CountryCode.CHOICES, read_only=True)
     price = serializers.CharField(read_only=True)
 
     def get_items(self, cart):
+        """Obtains the cart content"""
         queryset = CartItem.objects.filter(cart=cart)
         return CartItemDetailSerializer(queryset, many=True, context=self.context).data
 

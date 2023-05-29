@@ -5,16 +5,10 @@ from .serializers import ItemSerializer
 from rest_framework.decorators import api_view
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-"""
-class ItemViewSet(viewsets.ModelViewSet):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
-"""
 
 @api_view(['GET'])
 def get_items(request):
-    #obtener los datos del request
-    
+    """Request to get all items"""
     try:
         items = Item.objects.all()
         serializer = ItemSerializer(items, many=True, context={"request": request})
